@@ -20,7 +20,7 @@ I have recently completed a small research project in which I need to check how 
 
 The following script does the trick. It utilize the Twitter API(`tweepy`) and `MongoDB` (which needs to be set up separately). The script can also deal with Twitter API rate limit. Note that you will need Twitter API credentials.
 
-{% highlight python %}
+```python
 import tweepy
 import time
 import pymongo
@@ -63,13 +63,13 @@ while True:
 
 if __name__ == '__main__':
   main()
-{% endhighlight %}
+```
 
 ## Step 2: Analyse Twitter followers using `BotOrNot`
 
 Now you have all the follower information (IDs and screennames) stored in MongoDB. The next step is to get relevant information and pass it to the bot detector. Fortunately, `BotOrNot` also has a [Python API](https://github.com/truthy/botornot-python). Note that the logging class is not needed if you do not wish to run the code in IDE. You will also need Twitter API credentials.
 
-{% highlight python %}
+```python
 import os, time
 
 import pymongo, termcolor
@@ -223,6 +223,6 @@ def main():
 
 if __name__ == '__main__':
   main()
-{% endhighlight %}
+```
 
 Some Twitter bots also have unique signature in their networks. Check [this post](https://shkspr.mobi/blog/2015/03/this-is-what-a-graph-of-8000-fake-twitter-accounts-looks-like/) by Terence Eden for details.

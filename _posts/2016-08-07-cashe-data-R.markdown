@@ -23,7 +23,7 @@ The first function, `makeCacheMatrix` creates a special "matrix", which is reall
 3. set the value of the inverse matrix
 4. get the value of the inverse matrix
 
-{% highlight r %}
+```python
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
@@ -38,11 +38,11 @@ makeCacheMatrix <- function(x = matrix()) {
        setinverse = setinverse,
        getinverse = getinverse)
 }
-{% endhighlight %}
+```
 
 This function will take the object (list of functions) returned by `makeCacheMatrix()`. First, it call `getinverse()`. If there is an inverse matrix stored in the object, i.e. `i` is not `NULL`, then it will return `i` as the result. If no inverse matrix is stored in the object, it will call `get()` and get the matrix stored in the object. Then a inverse matrix is calculated and stored back into the object by calling `setinverse()` and then return the inverse matrix.
 
-{% highlight r %}
+```python
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   i <- x$getinverse()
@@ -55,12 +55,12 @@ cacheSolve <- function(x, ...) {
   x$setinverse(i)
   i
 }
-{% endhighlight %}
+```
 
 Here is an example of how to use the codes above:
 
-{% highlight r %}
+```python
 # Testing
 special_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
 cacheSolve(special_matrix)
-{% endhighlight %}
+```

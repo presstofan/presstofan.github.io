@@ -11,7 +11,7 @@ tags:
 
 In this post, I tried to crack the bridge riddle using very simple python code.
 
-> Taking that internship in a remote mountain lab might not have been the best idea. Pulling that lever with the skull symbol just to see what it did probably wasn’t so smart either. But now is not the time for regrets because you need to get away from these mutant zombies...fast. Can you use math to get you and your friends over the bridge before the zombies arrive? 
+> Taking that internship in a remote mountain lab might not have been the best idea. Pulling that lever with the skull symbol just to see what it did probably wasn’t so smart either. But now is not the time for regrets because you need to get away from these mutant zombies...fast. Can you use math to get you and your friends over the bridge before the zombies arrive?
 
 TED talk webpage can be found [here][ted-talk].
 
@@ -19,7 +19,7 @@ TED talk webpage can be found [here][ted-talk].
 <br><br>
 Below is the code:
 
-{% highlight python %}
+```python
 import random
 
 # A function that randomly pick K object from a list of unknown size
@@ -37,22 +37,22 @@ def random_subset( iterator, K ):
                 result[ s ] = item
 
     return result
-{% endhighlight %}
+```
 
-{% highlight python %}
+```python
 # set pars
 t_dict = dict([("lab", 2),
               ("jan", 5),
               ("you", 1),
               ("prof", 10)])
 t = 100
-{% endhighlight %}
+```
 
-{% highlight python %}
+```python
 while t > t_dead:
     set_danger = ["lab", "jan", "you", "prof"]
     set_safe =[]
-    
+
     c1 = random_subset(set_danger, 2)
     t1 = max(t_dict[c1[0]],t_dict[c1[1]])
     set_danger = list(set(set_danger) - set(c1))
@@ -77,13 +77,13 @@ while t > t_dead:
     t5 = max(t_dict[c5[0]],t_dict[c5[1]])
 
     t = t1 + t2 + t3 + t4 + t5
-    
+
     if t <= t_dead:
         print "You survived!"
         print "Solution: c1:%s, c2:%s, c3:%s, c4:%s, c5:%s" % (c1, c2, c3, c4, c5)
         print "Total Time: %d" % t
     else: continue
-{% endhighlight %}
+```
 
 
 
