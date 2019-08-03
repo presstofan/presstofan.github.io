@@ -22,13 +22,15 @@ In order to make the script work, we will need to set up Selenium ChromeDriver f
 
 ## Step 2: Set up the helper functions
 
-Once making sure the ChromeDriver, the following script by [Lucas Allen](https://github.com/lgallen/twitter-graph) and modified by [Eliot Andres](https://github.com/EliotAndres/facebook-friend-graph) can be used to scrap the friend network. First, we will need to load a couple of useful packages. Note that I have used Python 3 to build the script below. You might need to set up a virtual environment to make it works. I would recommend [Pipenv] (https://docs.pipenv.org/en/latest/) for future-proofing your virtual environment management workflow.
+Once making sure the ChromeDriver, the following script by [Lucas Allen](https://github.com/lgallen/twitter-graph) and modified by [Eliot Andres](https://github.com/EliotAndres/facebook-friend-graph) can be used to scrap the friend network. First, we will need to load a couple of useful packages. Note that I have used Python 3 to build the script below. You might need to set up a virtual environment to make it works. I would recommend [Pipenv] (https://docs.pipenv.org/en/latest/) for future-proofing your virtual environment management workflow. 
 
-`html.parser`: for parsing HTML
-`webdriver`: for controlling the ChromeDriver
-`tqdm`: for showing a progress bar while scrapping
-`pickle`: for backing up the checkpoint and storing the scrped friend information
-`getpass`: for the login prompt
+Below are a couple of key modules that we will use in the script:
+
+* `html.parser`: for parsing HTML
+* `webdriver`: for controlling the ChromeDriver
+* `tqdm`: for showing a progress bar while scrapping
+* `pickle`: for backing up the checkpoint and storing the scraped friend network
+* `getpass`: for the login prompt
 
 ```python
 from html.parser import HTMLParser
