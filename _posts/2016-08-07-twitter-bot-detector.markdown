@@ -4,11 +4,10 @@ date:   2016-08-07 11:24:42 +0100
 categories:
   - Python
 tags:
-  - Python
-  - Twitter
-  - MongoDB
-  - Social Network
-  - Practice Project
+  - python
+  - twitter
+  - mongodb
+  - social-network
 featured_image:
 header:
   teaser: assets/images/twitter_bot_teaser_500x300.png

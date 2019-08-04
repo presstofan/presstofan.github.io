@@ -4,9 +4,9 @@ date:   2019-08-03 22:22:00 +0100
 categories:
   - Python
 tags:
-  - Python
-  - Facebook
-  - Social Network
+  - python
+  - facebook
+  - social-network
 featured_image:
 header:
   teaser: assets/images/facebook_graph_teaser_500x300.png

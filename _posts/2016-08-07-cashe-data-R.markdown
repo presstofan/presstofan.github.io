@@ -4,8 +4,7 @@ date:   2016-08-07 17:30:42 +0100
 categories:
   - R
 tags:
-  - R
-  - Practice Project
+  - r
 header:
   teaser: assets/images/r_teaser_500x300.png
 ---

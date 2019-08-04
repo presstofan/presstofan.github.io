@@ -4,9 +4,8 @@ date:   2016-07-10 10:07:42 +0100
 categories:
   - Python
 tags:
-  - Python
-  - Ted Riddle
-  - Practice Project
+  - python
+  - ted-riddle
 ---
 
 In this post, I tried to crack the bridge riddle using very simple python code.

@@ -4,9 +4,8 @@ date:   2016-07-10 19:07:42 +0100
 categories:
   - Python
 tags:
-  - Python
-  - Ted Riddle
-  - Practice Project
+  - python
+  - ted-riddle
 ---
 
 In this post, I tried to crack the 100 locker riddle using very simple python code. Again, this is a simple practice of python syntax and functions.
