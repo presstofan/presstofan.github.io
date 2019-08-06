@@ -99,10 +99,14 @@ print('Added {} edges'.format(len(edges) ))
 The `nx.draw_networkx` function can then be called to draw the graph. It use `matplotlib` under the hood. The default plot has axis so don't forget to remove them.
 
 ```python
-nx.draw_networkx(G, with_labels=False, node_size=15, width=0.3, node_color='blue', edge_color='grey')
-limits=plt.axis('off') # remove axis
+pos = nx.spring_layout(G) # get the position using the spring layout algorithm
+
+plt.rcParams['figure.figsize'] = [10, 10]
+nx.draw_networkx(G, pos = pos, with_labels=False, 
+                 node_size=15, width=0.3, node_color='blue', edge_color='grey')
+limits=plt.axis('off') # turn of axis
 ```
-Below is the network graph generated. Blue dots (call "nodes") are friends and the lines (called "edges") are friendship ties. Since this is my Facebook friend network, everyone is connected to me (the central node). This visualisation uses force-directed positioning function as default. Imagine there are two types force: 1) spring-like attractive forces (based on Hooke's law) which attract pairs of endpoints of the graph's edges towards each other and 2) simultaneously repulsive forces (like those of electrically charged particles based on Coulomb's law) which separate all pairs of nodes. In equilibrium states for this system of forces, the edges tend to have uniform length (because of the spring forces), and nodes that are not connected by an edge tend to be drawn further apart (because of the electrical repulsion).
+Below is the network graph generated. Blue dots (call "nodes") are friends and the lines (called "edges") are friendship ties. Since this is my Facebook friend network, everyone is connected to me (the central node). This visualisation uses force-directed layout function to calculate the position of each node. Force-directed layout works like springs (hence the name `spring_layout`). Imagine there are two types force: 1) spring-like attractive forces (based on Hooke's law) which attract pairs of endpoints of the graph's edges towards each other and 2) simultaneously repulsive forces (like those of electrically charged particles based on Coulomb's law) which separate all pairs of nodes. In equilibrium states for this system of forces, the edges tend to have uniform length (because of the spring forces), and nodes that are not connected by an edge tend to be drawn further apart (because of the electrical repulsion). Note that we have store
 
 ![Facebook Friends Network Graph](/assets/images/posts_images/190803/facebook_graph.png)
 
@@ -111,6 +115,17 @@ The visualisation is already quite illuminating as it shows the different commun
 ## Step 4: Detect communities
 
 In this step, we'll colour the different friend communities. We'll use the louvain method described in Fast unfolding of communities in large networks, Vincent D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, Renaud Lefebvre, Journal of Statistical Mechanics: Theory and Experiment 2008(10), P10008 (12pp). Codes are [here](https://github.com/taynaud/python-louvain) and the details of the method can be found in [this Wikipedia page](https://en.wikipedia.org/wiki/Louvain_modularity).
+
+```python
+part = community.best_partition(G)
+values = [part.get(node) for node in G.nodes()]
+
+plt.rcParams['figure.figsize'] = [10, 10]
+nx.draw_networkx(G, pos = pos, 
+                 cmap = plt.get_cmap('tab10'), node_color = values, 
+                 node_size=20, width=0.3, edge_color='grey', with_labels=False)
+limits=plt.axis('off') # turn of axisb
+```
 
 ![Facebook Friends Network Graph](/assets/images/posts_images/190803/facebook_graph_comm.png)
 
